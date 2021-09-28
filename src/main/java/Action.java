@@ -92,38 +92,6 @@ public class Action {
                             editInformationCourse(idOfCard, course);
                             break;
                     }
-                    /*if(b==0){
-                        choseAction();
-                    }
-                    if (b==1){
-                        System.out.println(actionWords[20]);
-                        fullName = reader.readLine();
-                        System.out.println(actionWords[8]);
-                        idOfCard = Integer.parseInt(reader.readLine());
-                        editInformationFullName(idOfCard, fullName);
-
-                    }else if(b == 2){
-                        System.out.println(actionWords[20]);
-                        faculty = reader.readLine();
-                        System.out.println(actionWords[8]);
-                        idOfCard = Integer.parseInt(reader.readLine());
-                        editInformationFaculty(idOfCard, faculty);
-                    }else if(b == 3){
-                        System.out.println(actionWords[20]);
-                        department = reader.readLine();
-                        System.out.println(actionWords[8]);
-                        idOfCard = Integer.parseInt(reader.readLine());
-                        editInformationDepartment(idOfCard, department);
-                    }else if(b == 4){
-                        System.out.println(actionWords[20]);
-                        course = Integer.parseInt(reader.readLine());
-                        System.out.println(actionWords[8]);
-                        idOfCard = Integer.parseInt(reader.readLine());
-                        editInformationCourse(idOfCard, course);
-                    }else if ( b > 4){
-                        System.out.println(actionWords[21]);
-                    }
-                    break;*/
                 case 5:
                     System.out.println("\n"+actionWords[0]);
                     System.out.println(actionWords[22]+"\n"+ actionWords[8]);
@@ -135,79 +103,6 @@ public class Action {
                     break;
 
             }
-           /* if(a==1){
-                System.out.println(actionWords[7]+"\n");
-                checkInformationAboutDB();
-
-            }else if(a==2){
-                System.out.println(actionWords[7]+"\n"+actionWords[8]+"\n");
-                idOfCard = Integer.parseInt(reader.readLine());
-                System.out.println("\n"+actionWords[0]);
-                if(idOfCard == 0){
-                    choseAction();
-                }
-                checkInfoAboutStudent(idOfCard);
-            }else if(a==3){
-                System.out.println(actionWords[9]+"\n"+actionWords[8]);
-                idOfCard = Integer.parseInt(reader.readLine());
-                System.out.println(actionWords[10]+"\n");
-                fullName = reader.readLine();
-                System.out.println(actionWords[11]+"\n");
-                faculty = reader.readLine();
-                System.out.println(actionWords[12]+"\n");
-                department = reader.readLine();
-                System.out.println(actionWords[13]+"\n");
-                course = Integer.parseInt(reader.readLine());
-                Student student = new Student(idOfCard, fullName, department, faculty, course);
-                createNewStudent(student);
-
-            }else if (a==4){
-                System.out.println(actionWords[14]+"\n"+ actionWords[15]+"\n"+actionWords[16]+"\n"+actionWords[17]+"\n"+
-                        actionWords[18]+"\n"+actionWords[19]+"\n"+actionWords[0]+"\n");
-                int b = Integer.parseInt(reader.readLine());
-                if(b==0){
-                    choseAction();
-                }
-                if (b==1){
-                    System.out.println(actionWords[20]);
-                    fullName = reader.readLine();
-                    System.out.println(actionWords[8]);
-                    idOfCard = Integer.parseInt(reader.readLine());
-                    editInformationFullName(idOfCard, fullName);
-
-                }else if(b == 2){
-                    System.out.println(actionWords[20]);
-                    faculty = reader.readLine();
-                    System.out.println(actionWords[8]);
-                    idOfCard = Integer.parseInt(reader.readLine());
-                    editInformationFaculty(idOfCard, faculty);
-                }else if(b == 3){
-                    System.out.println(actionWords[20]);
-                    department = reader.readLine();
-                    System.out.println(actionWords[8]);
-                    idOfCard = Integer.parseInt(reader.readLine());
-                    editInformationDepartment(idOfCard, department);
-                }else if(b == 4){
-                    System.out.println(actionWords[20]);
-                    course = Integer.parseInt(reader.readLine());
-                    System.out.println(actionWords[8]);
-                    idOfCard = Integer.parseInt(reader.readLine());
-                    editInformationCourse(idOfCard, course);
-                }else if ( b > 4){
-                    System.out.println(actionWords[21]);
-                }
-
-
-            }else if (a==5){
-                System.out.println("\n"+actionWords[0]);
-                System.out.println(actionWords[22]+"\n"+ actionWords[8]);
-                idOfCard = Integer.parseInt(reader.readLine());
-                if(idOfCard == 0){
-                    choseAction();
-                }
-                deleteStudent(idOfCard);
-
-            }else System.out.println("Вы ввели неверный вариант");*/
         }catch (IOException | SQLException e){
             throw new RuntimeException(e);
         }
