@@ -1,3 +1,10 @@
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.sql.*;
 
 public class DoAction extends Action {
@@ -9,9 +16,12 @@ public class DoAction extends Action {
 
     public void checkInformationAboutDB(){
         String query = "SELECT * FROM students ";
+        String s = "C:\\Users\\USER\\Desktop\\tester\\text.txt";
+        boolean x = Files.exists(Paths.get(s));
+        OutputStream os = null;
         try {
             con = ConnectionManager.open();
-            stm = ConnectionManager.createStatement(con);
+            stm = con.createStatement();
             rs = stm.executeQuery(query);
             while (rs.next()){
                 int id = rs.getInt("id");
@@ -21,13 +31,19 @@ public class DoAction extends Action {
                 String department = rs.getString("department");
                 int course = rs.getInt("course");
                 System.out.printf("%d. ФИО: %s\n Факультет: %s\n Кафедра: %s\n Курс:%d\n id Карты: %d\n\n",id,name,faculty,department,course,id_of_card);
+                if(!x){
+                    Files.createFile(Paths.get(s));
+                }
+                os = new FileOutputStream(s);
+                os.write(name.getBytes(StandardCharsets.UTF_8),0,name.length());
+                System.out.println("файл записан");
             }
             stm.close();
             con.close();
             if (con.isClosed()){
                 System.out.println("Соединение с базой данных закрыто.\n\n");
             }
-        } catch (SQLException e) {
+        } catch (SQLException | IOException e) {
             e.printStackTrace();
         }
         choseAction();
@@ -37,7 +53,7 @@ public class DoAction extends Action {
         String query = "SELECT * FROM students WHERE id_of_card = " + a;
         try {
             con = ConnectionManager.open();
-            stm = ConnectionManager.createStatement(con);
+            stm = con.createStatement();
             rs = stm.executeQuery(query);
             while (rs.next()){
                 String name = rs.getString("full_name");
@@ -170,7 +186,7 @@ public class DoAction extends Action {
 
         try{
             con = ConnectionManager.open();
-            stm = ConnectionManager.createStatement(con);
+            stm = con.createStatement();
             int d = stm.executeUpdate(query);
             System.out.printf("%d row,s deleted\n",d);
 

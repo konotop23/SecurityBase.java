@@ -19,13 +19,4 @@ public final class ConnectionManager {
         }
     }
 
-    public static Statement createStatement(Connection connection){
-        try{
-        return connection.createStatement();
-        } catch (SQLException e) {
-        throw new RuntimeException(e);
-    }
-    }
-
-
 }
